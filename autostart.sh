@@ -11,5 +11,5 @@ exec thunar --daemon &
 exec mpd &
 exec otd &
 exec flameshot &
-exec /usr/bin/openrgb --startminimized --profile "Main" &
+exec /usr/bin/openrgb --startminimized --profile 'Main' &
 exec qbittorrent &

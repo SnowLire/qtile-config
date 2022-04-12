@@ -7,7 +7,7 @@
 # Copyright (c) 2013 Tao Sauvage
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
+# of this software and associated documentation files (the 'Software'), to deal
 # in the Software without restriction, including without limitation the rights
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 # copies of the Software, and to permit persons to whom the Software is
@@ -16,7 +16,7 @@
 # The above copyright notice and this permission notice shall be included in
 # all copies or substantial portions of the Software.
 #
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 # AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
@@ -30,44 +30,44 @@ from libqtile.config import EzClick as Click, EzDrag as Drag, Group, EzKey as Ke
 from libqtile.lazy import lazy
 
 home = os.path.expanduser('~')
-terminal = "kitty"
+terminal = 'kitty'
 
 keys = [
     # Switch between windows
     Key('M-h', lazy.layout.left(),
-        desc="Move focus to left"),
+        desc='Move focus to left'),
     Key('M-l', lazy.layout.right(),
-        desc="Move focus to right"),
+        desc='Move focus to right'),
     Key('M-j', lazy.layout.down(),
-        desc="Move focus down"),
+        desc='Move focus down'),
     Key('M-k', lazy.layout.up(),
-        desc="Move focus up"),
+        desc='Move focus up'),
     Key('M-<space>', lazy.layout.next(),
-        desc="Move window focus to other window"),
+        desc='Move window focus to other window'),
 
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key('M-S-h', lazy.layout.shuffle_left(),
-        desc="Move window to the left"),
+        desc='Move window to the left'),
     Key('M-S-l', lazy.layout.shuffle_right(),
-        desc="Move window to the right"),
+        desc='Move window to the right'),
     Key('M-S-j', lazy.layout.shuffle_down(),
-        desc="Move window down"),
+        desc='Move window down'),
     Key('M-S-k', lazy.layout.shuffle_up(),
-        desc="Move window up"),
+        desc='Move window up'),
 
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    Key("M-C-h", lazy.layout.grow_left(),
-        desc="Grow window to the left"),
-    Key("M-C-l", lazy.layout.grow_right(),
-        desc="Grow window to the right"),
-    Key("M-C-j", lazy.layout.grow_down(),
-        desc="Grow window down"),
-    Key("M-C-k", lazy.layout.grow_up(),
-        desc="Grow window up"),
-    Key("M-n", lazy.layout.normalize(),
-        desc="Reset all window sizes"),
+    Key('M-C-h', lazy.layout.grow_left(),
+        desc='Grow window to the left'),
+    Key('M-C-l', lazy.layout.grow_right(),
+        desc='Grow window to the right'),
+    Key('M-C-j', lazy.layout.grow_down(),
+        desc='Grow window down'),
+    Key('M-C-k', lazy.layout.grow_up(),
+        desc='Grow window up'),
+    Key('M-n', lazy.layout.normalize(),
+        desc='Reset all window sizes'),
 
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
@@ -75,13 +75,13 @@ keys = [
     # multiple stack panes
     Key(
         'M-S-<Return>',lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack",
+        desc='Toggle between split and unsplit sides of stack',
     ),
     # Applicaion binds
     Key('M-f', lazy.spawn('thunar'),
         desc='Launch Thunar'),
     Key('M-<Return>', lazy.spawn(terminal),
-        desc="Launch terminal"),
+        desc='Launch terminal'),
     Key('M-w', lazy.spawn('firefox'),
         desc='Launch Firefox'),
     Key('M-e', lazy.spawn('geany'),
@@ -105,43 +105,39 @@ keys = [
 
     # Toggle between different layouts as defined below
     Key('M-<Tab>', lazy.next_layout(),
-        desc="Toggle between layouts"),
+        desc='Toggle between layouts'),
     Key('M-c', lazy.window.kill(),
-        desc="Kill focused window"),
+        desc='Kill focused window'),
     Key('M-C-r', lazy.reload_config(),
-        desc="Reload the config"),
+        desc='Reload the config'),
     Key('M-C-q', lazy.shutdown(),
-        desc="Shutdown Qtile"),
+        desc='Shutdown Qtile'),
     Key('M-r', lazy.spawncmd(),
-        desc="Spawn a command using a prompt widget"),
+        desc='Spawn a command using a prompt widget'),
 ]
 
-groups = [Group(i) for i in "12345"]
+groups = [Group(i) for i in '12345']
 
 for i in groups:
     keys.extend(
         [
-            # mod1 + letter of group = switch to group
+            # Mod1 + letter of group = switch to group
             Key(
                 f'M-{i.name}',
                 lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
+                desc=f'Switch to group {i.name}',
             ),
-            # mod1 + shift + letter of group = switch to & move focused window to group
+            # Mod1 + Shift + letter of group = switch to & move focused window to group
             Key(
                 f'M-S-{i.name}',
                 lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
+                desc=f'Switch to & move focused window to group {i.name}',
             ),
-            # Or, use below if you prefer not to switch to that group.
-            # # mod1 + shift + letter of group = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
         ]
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=2),
+    layout.Columns(border_focus_stack=['#d75f5f', '#8f3d3d'], border_width=2),
     # layout.Max(),
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
@@ -156,9 +152,9 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="Inter",
-    fontsize=12,
-    padding=3,
+    font     = 'Inter',
+    fontsize = 12,
+    padding  = 3,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -178,7 +174,7 @@ screens = [
             24,
             background = '#333333',
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            # border_color=['ff00ff', '000000', 'ff00ff', '000000']  # Borders are magenta
         ),
     ),
 ]
@@ -201,17 +197,17 @@ floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
-        Match(wm_class="confirmreset"),  # gitk
-        Match(wm_class="makebranch"),  # gitk
-        Match(wm_class="maketag"),  # gitk
-        Match(wm_class="ssh-askpass"),  # ssh-askpass
-        Match(title="branchdialog"),  # gitk
-        Match(title="pinentry"),  # GPG key password entry
+        Match(wm_class='confirmreset'),  # gitk
+        Match(wm_class='makebranch'),  # gitk
+        Match(wm_class='maketag'),  # gitk
+        Match(wm_class='ssh-askpass'),  # ssh-askpass
+        Match(title='branchdialog'),  # gitk
+        Match(title='pinentry'),  # GPG key password entry
         Match(title=r'osu\!.*'), # osu!
     ]
 )
 auto_fullscreen = True
-focus_on_window_activation = "smart"
+focus_on_window_activation = 'smart'
 reconfigure_screens = True
 
 @hook.subscribe.restart
@@ -221,7 +217,7 @@ def cleanup():
 @hook.subscribe.shutdown
 def killall():
     shutil.rmtree(os.path.expanduser('~/.config/qtile/__pycache__'))
-    subprocess.Popen(['killall', 'xfce-polkit', 'nitrogen', 'picom', 'thunar'])
+    subprocess.Popen(['killall', 'xfce-polkit', 'picom', 'thunar'])
 
 @hook.subscribe.startup
 def autostart():
@@ -240,4 +236,4 @@ auto_minimize = True
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = "qtile"
+wmname = 'qtile'
