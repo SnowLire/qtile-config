@@ -114,6 +114,8 @@ keys = [
         desc='Shutdown Qtile'),
     Key('M-r', lazy.spawncmd(),
         desc='Spawn a command using a prompt widget'),
+    Key('A-r', lazy.spawn(os.path.expanduser('~/.config/openbox/rofi/bin/launcher')),
+        desc='Open rofi'),
 ]
 
 groups = [Group(i) for i in '12345']
