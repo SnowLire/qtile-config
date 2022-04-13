@@ -169,7 +169,6 @@ screens = [
                 widget.Mpd2(),
                 widget.Systray(),
                 widget.Clock(format='%Y-%m-%d %a %H:%M'),
-                widget.KeyboardLayout(),
             ],
             24,
             background = '#333333',
