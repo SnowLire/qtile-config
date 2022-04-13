@@ -6,10 +6,12 @@ killall -9 xfsettingsd xfce-polkit picom polybar xfce4-power-manager mpd flamesh
 xfsettingsd &
 /usr/lib/xfce-polkit/xfce-polkit &
 xfce4-power-manager &
-exec picom &
 exec thunar --daemon &
 exec mpd &
 exec otd &
 exec flameshot &
 exec /usr/bin/openrgb --startminimized --profile 'Main' &
 exec qbittorrent &
+
+sleep 3s
+pkill openrgb

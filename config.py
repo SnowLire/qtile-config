@@ -217,7 +217,7 @@ def cleanup():
 @hook.subscribe.shutdown
 def killall():
     shutil.rmtree(os.path.expanduser('~/.config/qtile/__pycache__'))
-    subprocess.Popen(['killall', 'xfce-polkit', 'picom', 'thunar'])
+    subprocess.Popen(['killall', 'xfce-polkit', 'thunar'])
 
 @hook.subscribe.startup
 def autostart():
