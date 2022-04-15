@@ -25,9 +25,10 @@
 # SOFTWARE.
 
 import os, re, shutil, subprocess
-from libqtile import bar, hook, layout, widget, qtile
+from libqtile import bar, hook, layout, qtile
 from libqtile.config import EzClick as Click, EzDrag as Drag, Group, EzKey as Key, Match, Rule, Screen
 from libqtile.lazy import lazy
+from qtile_extras import widget
 
 home = os.path.expanduser('~')
 terminal = 'kitty'
@@ -165,16 +166,18 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayout(),
-                widget.GroupBox(),
+                widget.GroupBox(highlight_method='block'),
                 widget.Prompt(),
                 widget.WindowName(),
                 widget.Volume(),
                 widget.Mpd2(),
-                widget.Systray(),
                 widget.Clock(format='%Y-%m-%d %a %H:%M'),
+                widget.CheckUpdates(no_update_string='No updates'),
+                widget.Systray(),
+                widget.StatusNotifier(),
             ],
             24,
-            background = '#333333',
+            background = '#222222',
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=['ff00ff', '000000', 'ff00ff', '000000']  # Borders are magenta
         ),
