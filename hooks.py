@@ -1,6 +1,6 @@
 import os, subprocess
 
-from libqtile.hook import hook
+from libqtile import hook
 
 @hook.subscribe.startup
 def autostart():

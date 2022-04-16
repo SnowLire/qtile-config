@@ -3,7 +3,7 @@ import os
 from libqtile.config import EzKey as Key
 from libqtile.lazy import lazy
 
-from config import groups
+from groups import groups
 
 browser = 'firefox'
 editor = 'geany'

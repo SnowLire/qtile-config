@@ -1,15 +1,15 @@
 import os, re
 
 from libqtile import bar, layout, qtile
-from libqtile.config import EzClick as Click, EzDrag as Drag, Group, Match, Rule, Screen
+from libqtile.config import EzClick as Click, EzDrag as Drag, Match, Rule, Screen
 from libqtile.lazy import lazy
 from qtile_extras import widget
 
 from keys import keys # NOQA
-
+from hooks import hook # NOQA
+from groups import groups # NOQA
 home = os.path.expanduser('~')
 
-groups = [Group(i) for i in '12345']
 
 layout_theme = {
     'margin': 0,
@@ -19,6 +19,7 @@ layout_theme = {
 }
 
 layouts = [
+    layout.Tile(**layout_theme),
     layout.Columns(**layout_theme),
     # layout.Max(),
     # layout.Stack(num_stacks=2),
@@ -27,7 +28,6 @@ layouts = [
     # layout.MonadTall(),
     # layout.MonadWide(),
     # layout.RatioTile(),
-    layout.Tile(**layout_theme),
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
