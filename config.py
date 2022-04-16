@@ -30,114 +30,11 @@ from libqtile.config import EzClick as Click, EzDrag as Drag, Group, EzKey as Ke
 from libqtile.lazy import lazy
 from qtile_extras import widget
 
+from keys import keys
+
 home = os.path.expanduser('~')
-terminal = 'kitty'
-
-keys = [
-    # Switch between windows
-    Key('M-h', lazy.layout.left(),
-        desc='Move focus to left'),
-    Key('M-l', lazy.layout.right(),
-        desc='Move focus to right'),
-    Key('M-j', lazy.layout.down(),
-        desc='Move focus down'),
-    Key('M-k', lazy.layout.up(),
-        desc='Move focus up'),
-    Key('M-<space>', lazy.layout.next(),
-        desc='Move window focus to other window'),
-
-    # Move windows between left/right columns or move up/down in current stack.
-    # Moving out of range in Columns layout will create new column.
-    Key('M-S-h', lazy.layout.shuffle_left(),
-        desc='Move window to the left'),
-    Key('M-S-l', lazy.layout.shuffle_right(),
-        desc='Move window to the right'),
-    Key('M-S-j', lazy.layout.shuffle_down(),
-        desc='Move window down'),
-    Key('M-S-k', lazy.layout.shuffle_up(),
-        desc='Move window up'),
-
-    # Grow windows. If current window is on the edge of screen and direction
-    # will be to screen edge - window would shrink.
-    Key('M-C-h', lazy.layout.grow_left(),
-        desc='Grow window to the left'),
-    Key('M-C-l', lazy.layout.grow_right(),
-        desc='Grow window to the right'),
-    Key('M-C-j', lazy.layout.grow_down(),
-        desc='Grow window down'),
-    Key('M-C-k', lazy.layout.grow_up(),
-        desc='Grow window up'),
-    Key('M-n', lazy.layout.normalize(),
-        desc='Reset all window sizes'),
-
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
-    Key(
-        'M-S-<Return>',lazy.layout.toggle_split(),
-        desc='Toggle between split and unsplit sides of stack',
-    ),
-    # Applicaion binds
-    Key('M-f', lazy.spawn('thunar'),
-        desc='Launch Thunar'),
-    Key('M-<Return>', lazy.spawn(terminal),
-        desc='Launch terminal'),
-    Key('M-w', lazy.spawn('firefox'),
-        desc='Launch Firefox'),
-    Key('M-e', lazy.spawn('geany'),
-        desc='Lauch Geany'),
-    Key('<Print>', lazy.spawn('flameshot gui'),
-        desc='Take screenshot'),
-
-    # Audio binds
-    Key('<XF86AudioRaiseVolume>', lazy.spawn('volume --inc'),
-        desc='Increase Volume'),
-    Key('<XF86AudioLowerVolume>', lazy.spawn('volume --dec'),
-        desc='Decrease Volume'),
-    Key('<XF86AudioMute>', lazy.spawn('volume --toggle'),
-        desc='Mute/Unmute'),
-
-    # MPD binds
-    Key('<XF86AudioStop>', lazy.spawn('mpc stop')),
-    Key('<XF86AudioPlay>', lazy.spawn('mpc toggle')),
-    Key('<XF86AudioPrev>', lazy.spawn('mpc prev')),
-    Key('<XF86AudioNext>', lazy.spawn('mpc next')),
-
-    # Toggle between different layouts as defined below
-    Key('M-<Tab>', lazy.next_layout(),
-        desc='Toggle between layouts'),
-    Key('M-c', lazy.window.kill(),
-        desc='Kill focused window'),
-    Key('M-C-r', lazy.reload_config(),
-        desc='Reload the config'),
-    Key('M-C-q', lazy.shutdown(),
-        desc='Shutdown Qtile'),
-    Key('M-r', lazy.spawncmd(),
-        desc='Spawn a command using a prompt widget'),
-    Key('A-r', lazy.spawn(os.path.expanduser('~/.config/openbox/rofi/bin/launcher')),
-        desc='Open rofi'),
-]
 
 groups = [Group(i) for i in '12345']
-
-for i in groups:
-    keys.extend(
-        [
-            # Mod1 + letter of group = switch to group
-            Key(
-                f'M-{i.name}',
-                lazy.group[i.name].toscreen(),
-                desc=f'Switch to group {i.name}',
-            ),
-            # Mod1 + Shift + letter of group = switch to & move focused window to group
-            Key(
-                f'M-S-{i.name}',
-                lazy.window.togroup(i.name, switch_group=True),
-                desc=f'Switch to & move focused window to group {i.name}',
-            ),
-        ]
-    )
 
 layouts = [
     layout.Columns(border_focus_stack=['#d75f5f', '#8f3d3d'], border_width=2),
@@ -154,26 +51,26 @@ layouts = [
     # layout.Zoomy(),
 ]
 
-widget_defaults = dict(
-    font     = 'Inter',
-    fontsize = 12,
-    padding  = 3,
-)
+widget_defaults = {
+    'font': 'Inter',
+    'fontsize': 12,
+    'padding': 3,
+}
+
 extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
+                widget.CurrentLayoutIcon(),
                 widget.GroupBox(highlight_method='block'),
                 widget.Prompt(),
                 widget.WindowName(),
                 widget.Volume(),
                 widget.Mpd2(),
-                widget.Clock(format='%Y-%m-%d %a %H:%M'),
+                widget.Clock(format='%Y-%m-%d %a %H:%M', timezone='Europe/Budapest'),
                 widget.CheckUpdates(no_update_string='No updates'),
-                widget.Systray(),
                 widget.StatusNotifier(),
             ],
             24,
