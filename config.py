@@ -8,8 +8,8 @@ from qtile_extras import widget
 from keys import keys # NOQA
 from hooks import hook # NOQA
 from groups import groups # NOQA
-home = os.path.expanduser('~')
 
+home = os.path.expanduser('~')
 
 layout_theme = {
     'margin': 0,
