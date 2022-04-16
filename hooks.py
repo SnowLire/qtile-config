@@ -1,4 +1,4 @@
-import os, shutil, subprocess
+import os, subprocess
 from libqtile.hook import hook
 
 @hook.subscribe.startup

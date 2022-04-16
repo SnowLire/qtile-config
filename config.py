@@ -24,20 +24,27 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import os, re, shutil, subprocess
-from libqtile import bar, hook, layout, qtile
-from libqtile.config import EzClick as Click, EzDrag as Drag, Group, EzKey as Key, Match, Rule, Screen
+import os, re
+from libqtile import bar, layout, qtile
+from libqtile.config import EzClick as Click, EzDrag as Drag, Group, Match, Rule, Screen
 from libqtile.lazy import lazy
 from qtile_extras import widget
 
-from keys import keys
+from keys import keys # NOQA
 
 home = os.path.expanduser('~')
 
 groups = [Group(i) for i in '12345']
 
+layout_theme = {
+    'margin': 0,
+    'border_width': 1,
+    'border_focus': '#42fff9',
+    'border_normal': '#000000',
+}
+
 layouts = [
-    layout.Columns(border_focus_stack=['#d75f5f', '#8f3d3d'], border_width=2),
+    layout.Columns(**layout_theme),
     # layout.Max(),
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
@@ -45,7 +52,7 @@ layouts = [
     # layout.MonadTall(),
     # layout.MonadWide(),
     # layout.RatioTile(),
-    layout.Tile(),
+    layout.Tile(**layout_theme),
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
@@ -95,7 +102,7 @@ dgroups_app_rules = []  # type: list
 follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = False
-floating_layout = layout.Floating(
+floating_layout = layout.Floating(**layout_theme,
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
@@ -103,13 +110,14 @@ floating_layout = layout.Floating(
         Match(wm_class='makebranch'),  # gitk
         Match(wm_class='maketag'),  # gitk
         Match(wm_class='ssh-askpass'),  # ssh-askpass
+        Match(wm_class=r'steam_app_[0-9]*'), # any steam apps
         Match(title='branchdialog'),  # gitk
         Match(title='pinentry'),  # GPG key password entry
         Match(title=r'osu\!.*'), # osu!
     ]
 )
 auto_fullscreen = True
-focus_on_window_activation = 'smart'
+focus_on_window_activation = 'focus'
 reconfigure_screens = True
 
 # If things like steam games want to auto-minimize themselves when losing
