@@ -49,10 +49,9 @@ screens = [
                 widget.GroupBox(highlight_method='block'),
                 widget.Prompt(),
                 widget.WindowName(),
-                widget.Volume(),
                 widget.Mpd2(),
-                widget.Clock(format='%Y-%m-%d %a %H:%M', timezone='Europe/Budapest'),
-                widget.CheckUpdates(no_update_string='No updates'),
+                widget.Volume(),
+                widget.Clock(format='%a %Y-%m-%d %H:%M:%S', timezone='Europe/Budapest'),
                 widget.StatusNotifier(),
             ],
             24,
@@ -92,7 +91,7 @@ floating_layout = layout.Floating(**layout_theme,
     ]
 )
 auto_fullscreen = True
-auto_minimize = False
+auto_minimize = True
 focus_on_window_activation = 'focus'
 reconfigure_screens = True
 
