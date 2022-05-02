@@ -85,6 +85,7 @@ floating_layout = layout.Floating(**layout_theme,
         Match(wm_class='maketag'),  # gitk
         Match(wm_class='ssh-askpass'),  # ssh-askpass
         Match(wm_class=r'steam_app_[0-9]*'), # any steam apps
+	    Match(wm_class=r'Minecraft\*.* '), # minecraft
         Match(title='branchdialog'),  # gitk
         Match(title='pinentry'),  # GPG key password entry
         Match(title=r'osu\!.*'), # osu!
