@@ -43,6 +43,7 @@ keys = [
     Key('M-<Return>', lazy.spawn(terminal)),
     Key('M-w', lazy.spawn(browser)),
     Key('M-e', lazy.spawn(editor)),
+    Key('M-v', lazy.spawn('gpaste-client ui')),
     Key('<Print>', lazy.spawn('flameshot gui')),
 
     # Audio binds

@@ -13,8 +13,5 @@ exec flameshot &
 exec /usr/bin/openrgb --startminimized --profile 'Main' &
 exec qbittorrent &
 
-autocutsel -fork &
-autocutsel -selection PRIMARY -fork &
-
 sleep 3s
 pkill openrgb
