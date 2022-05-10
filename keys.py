@@ -62,8 +62,7 @@ keys = [
     Key('M-c', lazy.window.kill()),
     Key('M-C-r', lazy.reload_config()),
     Key('M-C-q', lazy.shutdown()),
-    Key('M-r', lazy.spawncmd()),
-    Key('A-r', lazy.spawn(os.path.expanduser('~/.config/openbox/rofi/bin/launcher'))),
+    Key('M-r', lazy.spawn('rofi -show')),
 ]
 
 for i in groups:
