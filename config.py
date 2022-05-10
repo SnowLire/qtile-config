@@ -1,15 +1,13 @@
-import os, re
 
-from libqtile import bar, layout, qtile
-from libqtile.config import EzClick as Click, EzDrag as Drag, Match, Rule, Screen
+
+from libqtile import bar, layout
+from libqtile.config import EzClick as Click, EzDrag as Drag, Match, Screen
 from libqtile.lazy import lazy
-from qtile_extras import widget
+from qtile_extras import widget # type: ignore
 
 from keys import keys # NOQA
 from hooks import hook # NOQA
 from groups import groups # NOQA
-
-home = os.path.expanduser('~')
 
 layout_theme = {
     'margin': 0,
