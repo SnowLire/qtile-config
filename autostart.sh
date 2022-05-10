@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
-killall -9 xfsettingsd xfce-polkit picom polybar xfce4-power-manager mpd flameshot
+killall -9 xfsettingsd xfce-polkit clipmenud xfce4-power-manager mpd flameshot
 
 ~/.fehbg &
 xfsettingsd &
 /usr/lib/xfce-polkit/xfce-polkit &
 xfce4-power-manager &
+exec clipmenud &
 exec thunar --daemon &
 exec mpd &
 exec otd &
