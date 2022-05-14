@@ -45,8 +45,8 @@ keys = [
     Key('<Print>', lazy.spawn('flameshot gui')),
 
     # Audio binds
-    Key('<XF86AudioRaiseVolume>', lazy.spawn('amixer sset Master 1%+')),
-    Key('<XF86AudioLowerVolume>', lazy.spawn('amixer sset Master 1%-')),
+    Key('<XF86AudioRaiseVolume>', lazy.spawn('amixer sset Master 5%+')),
+    Key('<XF86AudioLowerVolume>', lazy.spawn('amixer sset Master 5%-')),
     Key('<XF86AudioMute>', lazy.spawn('amixer sset Master toggle')),
 
     # MPD binds
