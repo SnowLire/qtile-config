@@ -13,7 +13,7 @@ exec otd &
 exec flameshot &
 exec /usr/bin/openrgb --startminimized --profile 'Main' &
 exec qbittorrent &
-exec mpd-discord-rpc &
+mpd_discord_richpresence --fork
 
 sleep 3s
 pkill openrgb
