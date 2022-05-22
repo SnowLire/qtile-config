@@ -1,3 +1,3 @@
 from libqtile.config import Group
 
-groups = [Group(i) for i in '12345']
+groups = [Group(i) for i in '12345678']
