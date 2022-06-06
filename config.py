@@ -1,4 +1,3 @@
-import re
 
 from libqtile import bar, layout
 from libqtile.config import EzClick as Click
