@@ -12,7 +12,7 @@ exec mpd &
 exec otd &
 exec flameshot &
 exec /usr/bin/openrgb --startminimized --profile 'Main' &
-exec qbittorrent &
+exec transmission-gtk &
 mpd_discord_richpresence --fork
 
 sleep 3s
