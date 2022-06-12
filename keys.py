@@ -7,7 +7,6 @@ browser = "firefox"
 editor = "geany"
 filemanager = "thunar"
 terminal = "kitty"
-dropdown = "yakuake"
 
 keys = [
     # Switch between windows
@@ -39,7 +38,6 @@ keys = [
     # Applicaion binds
     Key("M-f", lazy.spawn(filemanager)),
     Key("M-<Return>", lazy.spawn(terminal)),
-    Key("<F12>", lazy.spawn(dropdown)),
     Key("M-w", lazy.spawn(browser)),
     Key("M-e", lazy.spawn(editor)),
     Key("M-v", lazy.spawn("gpaste-client ui")),
